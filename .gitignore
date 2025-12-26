@@ -10,7 +10,11 @@ server/node_modules
 # Build output
 dist
 server/public/videos
+server/public/videos/*
+server/public/scraped_images
+server/public/scraped_images/*
 server/public/*.png
+server/public/generated_*.png
 *.log
 
 # Test outputs
