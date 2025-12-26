@@ -129,12 +129,12 @@ async function runCampaign(url, skipVideoGen = false, onLog = null) {
         addLog('INTEL', `Image validation complete.`, {
             reason: "Selected clear, professional product shot. Disqualified lifestyle/collage candidates."
         });
-        addLog('RENDER', `Cinematic prompt generated for Fal.ai.`, {
-            falPrompt: videoPrompt
+        addLog('RENDER', `Cinematic prompt generated for Sora 2.`, {
+            soraPrompt: videoPrompt
         });
 
         if (!skipVideoGen) {
-            addLog('RENDER', `Generating Video with Fal.ai...`);
+            addLog('RENDER', `Generating Video with Sora 2...`);
             videoResult = await generateFalVideo([mainImage], videoPrompt, '9:16');
             addLog('RENDER', `Video Generated successfully.`);
         } else {

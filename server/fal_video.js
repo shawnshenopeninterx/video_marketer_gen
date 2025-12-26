@@ -42,17 +42,18 @@ async function generateFalVideo(images, prompt, aspectRatio = '9:16') {
         console.log(`Prompt: "${prompt}"`);
         console.log(`Aspect Ratio: ${aspectRatio}`);
 
-        // Use Luma Dream Machine for high-quality video generation
-        const model = "fal-ai/luma-dream-machine";
+        // Use Sora 2 for high-quality video generation
+        let model = "fal-ai/sora-2/text-to-video";
 
         const payload = {
             prompt: prompt,
             aspect_ratio: aspectRatio.includes(':') ? aspectRatio : '9:16'
         };
 
-        // If an image is provided, add it to the payload
+        // If an image is provided, use image-to-video
         if (images && images.length > 0 && images[0]) {
-            console.log(`Using image input: ${images[0]}`);
+            console.log(`Using image input for Sora 2: ${images[0]}`);
+            model = "fal-ai/sora-2/image-to-video";
             payload.image_url = images[0];
         }
 
