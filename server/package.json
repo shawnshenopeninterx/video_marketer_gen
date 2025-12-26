@@ -12,6 +12,7 @@
     "test:flow": "node test_flow.js"
   },
   "dependencies": {
+    "@fal-ai/client": "^1.8.1",
     "@google/genai": "^1.34.0",
     "axios": "^1.6.0",
     "cheerio": "^1.0.0-rc.12",

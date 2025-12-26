@@ -1,7 +1,7 @@
 const { scrapeProductData } = require('./scraper');
 const { generateResearchPrompt, generateScriptFromInsights, selectBestImage, categorizeProduct, distillProductData } = require('./gemini');
 const { generateMarketingInsights } = require('./video_marketer');
-const { generateVeo3Video } = require('./veo3');
+const { generateFalVideo } = require('./fal_video');
 const fs = require('fs');
 const path = require('path');
 const axios = require('axios');
@@ -129,13 +129,13 @@ async function runCampaign(url, skipVideoGen = false, onLog = null) {
         addLog('INTEL', `Image validation complete.`, {
             reason: "Selected clear, professional product shot. Disqualified lifestyle/collage candidates."
         });
-        addLog('RENDER', `Cinematic prompt generated for Google Veo 3.1.`, {
-            veoPrompt: videoPrompt
+        addLog('RENDER', `Cinematic prompt generated for Fal.ai.`, {
+            falPrompt: videoPrompt
         });
 
         if (!skipVideoGen) {
-            addLog('RENDER', `Generating Video with Veo3...`);
-            videoResult = await generateVeo3Video([mainImage], videoPrompt, '9:16');
+            addLog('RENDER', `Generating Video with Fal.ai...`);
+            videoResult = await generateFalVideo([mainImage], videoPrompt, '9:16');
             addLog('RENDER', `Video Generated successfully.`);
         } else {
             addLog('SYSTEM', `Video Generation Skipped (Inputs prepared above).`);
