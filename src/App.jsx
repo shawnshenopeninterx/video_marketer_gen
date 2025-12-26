@@ -71,7 +71,7 @@ function App() {
       setProcessLogs([])
       const loggedStages = new Set()
 
-      const eventSource = new EventSource(`/api/campaign?url=${encodeURIComponent(url)}`)
+      const eventSource = new EventSource(`https://videomarketergen-production.up.railway.app/api/campaign?url=${encodeURIComponent(url)}`)
 
       eventSource.addEventListener('log', (event) => {
         const logEntry = JSON.parse(event.data)
@@ -423,7 +423,7 @@ function App() {
                   {(result.selectedImage || result.productData.images?.[0]) && (
                     <div className="product-image-container">
                       <img
-                        src={(result.selectedImage || result.productData.images[0]).startsWith('http') ? (result.selectedImage || result.productData.images[0]) : `http://localhost:3000${result.selectedImage || result.productData.images[0]}`}
+                        src={(result.selectedImage || result.productData.images[0]).startsWith('http') ? (result.selectedImage || result.productData.images[0]) : `https://videomarketergen-production.up.railway.app${result.selectedImage || result.productData.images[0]}`}
                         alt="Product"
                         className="scraped-image"
                       />
@@ -450,7 +450,7 @@ function App() {
                     {result.video && result.video.videoUrl ? (
                       <video
                         key={result.video.videoUrl}
-                        src={result.video.videoUrl.startsWith('http') ? result.video.videoUrl : `http://localhost:3000${result.video.videoUrl}`}
+                        src={result.video.videoUrl.startsWith('http') ? result.video.videoUrl : `https://videomarketergen-production.up.railway.app${result.video.videoUrl}`}
                         controls
                         autoPlay
                         loop
@@ -467,7 +467,7 @@ function App() {
                   </div>
                   <div className="video-actions">
                     <a
-                      href={result.video?.videoUrl.startsWith('http') ? result.video.videoUrl : `http://localhost:3000${result.video?.videoUrl}`}
+                      href={result.video?.videoUrl.startsWith('http') ? result.video.videoUrl : `https://videomarketergen-production.up.railway.app${result.video?.videoUrl}`}
                       download
                       className="download-btn"
                     >
