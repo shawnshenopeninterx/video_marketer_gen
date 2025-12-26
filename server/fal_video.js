@@ -1,4 +1,4 @@
-const fal = require("@fal-ai/client");
+const { fal } = require("@fal-ai/client");
 const fs = require('fs');
 const path = require('path');
 const https = require('https');
@@ -42,8 +42,8 @@ async function generateFalVideo(images, prompt, aspectRatio = '9:16') {
         console.log(`Prompt: "${prompt}"`);
         console.log(`Aspect Ratio: ${aspectRatio}`);
 
-        // Use Luma Dream Machine v2 for high-quality video generation (supports text and image)
-        const model = "fal-ai/luma-dream-machine/v2";
+        // Use Luma Dream Machine for high-quality video generation
+        const model = "fal-ai/luma-dream-machine";
 
         const payload = {
             prompt: prompt,
