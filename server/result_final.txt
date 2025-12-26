@@ -1,0 +1,5 @@
+Testing scraper with: https://memories.ai/luci/
+Launching Puppeteer for URL: https://memories.ai/luci/
+----------------------------------------
+RESULT: https://memories.ai/luci/static/tech/Intel.webp
+----------------------------------------
