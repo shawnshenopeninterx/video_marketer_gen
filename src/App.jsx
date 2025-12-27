@@ -196,7 +196,7 @@ function App() {
       selectedImage: 'https://ourahealth.imgix.net/singles_day_mobile.jpg?ixlib=js-3.8.0&auto=format&fit=crop&fm=png&ar=1%3A1&crop=focalpoint&fp-x=0.38&fp-y=0.52&fp-z=1.6&q=70&w=3840&s=2625eaa74513d7ed942f21009cc26f3b',
       videoPrompt: 'Create a high-energy, viral 9:16 TikTok advertisement for this product: Wearable Health Technology. Product Description: Oura Ring 4 is a smart ring designed for fitness, sleep, stress, and overall health monitoring.',
       tiktokUrls: [
-        'https://www.tiktok.com/@oura/video/7421882352841608490',
+        'https://www.tiktok.com/@tiktok/video/7106363060851117358',
         'https://www.tiktok.com/@mkbhd/video/7421882194639457567'
       ]
     }
@@ -524,7 +524,7 @@ function App() {
                         return (
                           <div key={i} className="tiktok-embed-wrapper">
                             <iframe
-                              src={`https://www.tiktok.com/embed/v2/${videoId}?lang=en-US&music_info=1&description=1`}
+                              src={`https://www.tiktok.com/embed/${videoId}`}
                               style={{ width: '100%', height: '100%', border: 'none' }}
                               allowFullScreen
                               allow="autoplay; encrypted-media; picture-in-picture"
