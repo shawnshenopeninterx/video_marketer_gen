@@ -2,6 +2,10 @@ import { useState, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import './index.css'
 
+const API_BASE_URL = window.location.hostname === 'localhost'
+  ? 'http://localhost:3000'
+  : 'https://video-marketer-gen.onrender.com';
+
 function App() {
   const [url, setUrl] = useState('')
   // ... rest of state
@@ -71,7 +75,7 @@ function App() {
       setProcessLogs([])
       const loggedStages = new Set()
 
-      const eventSource = new EventSource(`https://video-marketer-gen.onrender.com/api/campaign?url=${encodeURIComponent(url)}`)
+      const eventSource = new EventSource(`${API_BASE_URL}/api/campaign?url=${encodeURIComponent(url)}`)
 
       eventSource.addEventListener('log', (event) => {
         const logEntry = JSON.parse(event.data)
@@ -423,7 +427,7 @@ function App() {
                   {(result.selectedImage || result.productData.images?.[0]) && (
                     <div className="product-image-container">
                       <img
-                        src={(result.selectedImage || result.productData.images[0]).startsWith('http') ? (result.selectedImage || result.productData.images[0]) : `https://video-marketer-gen.onrender.com${result.selectedImage || result.productData.images[0]}`}
+                        src={(result.selectedImage || result.productData.images[0]).startsWith('http') ? (result.selectedImage || result.productData.images[0]) : `${API_BASE_URL}${result.selectedImage || result.productData.images[0]}`}
                         alt="Product"
                         className="scraped-image"
                       />
@@ -442,67 +446,7 @@ function App() {
                 </div>
               </div>
 
-              {/* Column 2: Viral Video */}
-              <div className="result-col video-col">
-                <div className="glass-card video-card">
-                  <div className="card-label">Cinematic Render</div>
-                  <div className="video-player-wrapper">
-                    {result.video && result.video.videoUrl ? (
-                      <video
-                        key={result.video.videoUrl}
-                        src={result.video.videoUrl.startsWith('http') ? result.video.videoUrl : `https://video-marketer-gen.onrender.com${result.video.videoUrl}`}
-                        controls
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        className="main-video"
-                      />
-                    ) : (
-                      <div className="video-render-placeholder">
-                        <span className="spinner"></span>
-                        <p>Finalizing Render...</p>
-                      </div>
-                    )}
-                  </div>
-                  <div className="video-actions">
-                    <a
-                      href={result.video?.videoUrl.startsWith('http') ? result.video.videoUrl : `https://video-marketer-gen.onrender.com${result.video?.videoUrl}`}
-                      download
-                      className="download-btn"
-                    >
-                      Download 9:16 Ad
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              {/* Column 3: Viral Script */}
-              <div className="result-col script-col">
-                <div className="glass-card script-card">
-                  <div className="card-label">Viral Script</div>
-                  <div className="script-scroll-area">
-                    <div className="script-content">
-                      {result.script.split('\n\n').map((section, i) => (
-                        <div key={i} className="script-section">
-                          {section.startsWith('[') ? (
-                            <>
-                              <div className="script-section-header">
-                                <span className="section-tag">{section.match(/\[(.*?)\]/)?.[1]}</span>
-                              </div>
-                              <div className="section-body">{section.replace(/\[.*?\]\n?/, '')}</div>
-                            </>
-                          ) : (
-                            <div className="section-body">{section}</div>
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Column 4: Referenced TikToks */}
+              {/* Column 2: Referenced TikToks (Moved from 4) */}
               <div className="result-col tiktok-col">
                 <div className="glass-card tiktok-refs-card">
                   <div className="card-label">Referenced TikToks</div>
@@ -527,6 +471,66 @@ function App() {
                         No reference videos found.
                       </div>
                     )}
+                  </div>
+                </div>
+              </div>
+
+              {/* Column 3: Viral Script (Currently 3) */}
+              <div className="result-col script-col">
+                <div className="glass-card script-card">
+                  <div className="card-label">Viral Script</div>
+                  <div className="script-scroll-area">
+                    <div className="script-content">
+                      {result.script.split('\n\n').map((section, i) => (
+                        <div key={i} className="script-section">
+                          {section.startsWith('[') ? (
+                            <>
+                              <div className="script-section-header">
+                                <span className="section-tag">{section.match(/\[(.*?)\]/)?.[1]}</span>
+                              </div>
+                              <div className="section-body">{section.replace(/\[.*?\]\n?/, '')}</div>
+                            </>
+                          ) : (
+                            <div className="section-body">{section}</div>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Column 4: Viral Video (Moved from 2) */}
+              <div className="result-col video-col">
+                <div className="glass-card video-card">
+                  <div className="card-label">Cinematic Render</div>
+                  <div className="video-player-wrapper">
+                    {result.video && result.video.videoUrl ? (
+                      <video
+                        key={result.video.videoUrl}
+                        src={result.video.videoUrl.startsWith('http') ? result.video.videoUrl : `${API_BASE_URL}${result.video.videoUrl}`}
+                        controls
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="main-video"
+                      />
+                    ) : (
+                      <div className="video-render-placeholder">
+                        <span className="spinner"></span>
+                        <p>Finalizing Render...</p>
+                      </div>
+                    )}
+                  </div>
+                  <div className="video-actions">
+                    <a
+                      href={result.video?.videoUrl.startsWith('http') ? result.video.videoUrl : `${API_BASE_URL}${result.video?.videoUrl}`}
+                      download
+                      className="download-btn"
+                    >
+                      Download 9:16 Ad
+                    </a>
                   </div>
                 </div>
               </div>

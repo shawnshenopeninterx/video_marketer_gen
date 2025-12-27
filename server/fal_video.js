@@ -47,14 +47,43 @@ async function generateFalVideo(images, prompt, aspectRatio = '9:16') {
 
         const payload = {
             prompt: prompt,
-            aspect_ratio: aspectRatio.includes(':') ? aspectRatio : '9:16'
         };
 
         // If an image is provided, use image-to-video
         if (images && images.length > 0 && images[0]) {
-            console.log(`Using image input for Sora 2: ${images[0]}`);
+            let imageUrl = images[0];
+
+            // If the image is local (localhost or relative path), upload it to fal.ai storage
+            if (imageUrl.includes('localhost') || imageUrl.startsWith('/')) {
+                console.log(`Detected local image, uploading to fal.ai storage: ${imageUrl}`);
+                try {
+                    // Extract local path
+                    let localImagePath;
+                    if (imageUrl.includes('localhost')) {
+                        const fileName = imageUrl.split('/').pop();
+                        localImagePath = path.join(__dirname, 'public', fileName);
+                    } else {
+                        localImagePath = path.join(__dirname, 'public', imageUrl);
+                    }
+
+                    if (fs.existsSync(localImagePath)) {
+                        const fileBuffer = fs.readFileSync(localImagePath);
+                        imageUrl = await fal.storage.upload(fileBuffer);
+                        console.log(`Image uploaded successfully to fal.ai storage: ${imageUrl}`);
+                    }
+                } catch (uploadErr) {
+                    console.error("Fal.ai storage upload failed:", uploadErr);
+                    // Fall back to original URL if upload fails
+                }
+            }
+
+            console.log(`Using image input for Sora 2: ${imageUrl}`);
             model = "fal-ai/sora-2/image-to-video";
-            payload.image_url = images[0];
+            payload.image_url = imageUrl;
+            // image-to-video often takes resolution/aspect from the source image
+        } else {
+            // text-to-video supports aspect_ratio
+            payload.aspect_ratio = aspectRatio.includes(':') ? aspectRatio : '9:16';
         }
 
         console.log('Calling Fal.ai API with model:', model);

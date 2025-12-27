@@ -2,10 +2,45 @@ const { GoogleGenAI } = require("@google/genai");
 const axios = require('axios');
 const fs = require('fs');
 const path = require('path');
+const { fal } = require("@fal-ai/client");
 
-// Using the working API key
-const API_KEY = 'AIzaSyBKjCltZqH5m4YIIv2WAv9YUxYAkFsQF4Q';
+// Use environment variable for API key
+const API_KEY = process.env.GOOGLE_API_KEY;
 const ai = new GoogleGenAI({ apiKey: API_KEY });
+
+// Configure Fal.ai
+fal.config({
+    credentials: process.env.FAL_KEY || process.env.FAL_API_KEY
+});
+
+async function callFalText(prompt) {
+    try {
+        console.log(`[Fallback] Calling Fal.ai Llama 3.1 405B...`);
+        const result = await fal.run("fal-ai/llama/v3-1-405b-instruct", {
+            input: { prompt }
+        });
+        return result.output || result.data?.output;
+    } catch (e) {
+        console.error("Fal.ai text fallback error:", e.message);
+        throw e;
+    }
+}
+
+async function callFalVision(prompt, imageBase64) {
+    try {
+        console.log(`[Fallback] Calling Fal.ai Llama 3.2 11B Vision...`);
+        const result = await fal.run("fal-ai/llama/v3-2-11b-vision-instruct", {
+            input: {
+                prompt,
+                image_url: `data:image/jpeg;base64,${imageBase64}`
+            }
+        });
+        return result.output || result.data?.output;
+    } catch (e) {
+        console.error("Fal.ai vision fallback error:", e.message);
+        throw e;
+    }
+}
 
 async function generateText(prompt) {
     try {
@@ -26,6 +61,9 @@ async function generateText(prompt) {
             return "Error: Could not generate text";
         }
     } catch (error) {
+        if (error.message && (error.message.includes('supported') || error.message.includes('400'))) {
+            return await callFalText(prompt);
+        }
         console.error('Gemini Text Gen Error:', error);
         throw error;
     }
@@ -72,6 +110,15 @@ async function distillProductData(rawText) {
         const jsonStr = text.replace(/```json/g, '').replace(/```/g, '').trim();
         return JSON.parse(jsonStr);
     } catch (e) {
+        if (e.message && (e.message.includes('supported') || e.message.includes('400'))) {
+            try {
+                const text = await callFalText(prompt);
+                const jsonStr = text.replace(/```json/g, '').replace(/```/g, '').trim();
+                return JSON.parse(jsonStr);
+            } catch (fallbackErr) {
+                console.error("Distillation fallback error:", fallbackErr);
+            }
+        }
         console.error("Distillation error:", e);
         return {
             productName: "Unknown Product",
@@ -121,7 +168,12 @@ async function generateScriptFromInsights(insights, productData) {
 
 async function downloadImage(url) {
     try {
-        const response = await axios.get(url, { responseType: 'arraybuffer' });
+        const response = await axios.get(url, {
+            responseType: 'arraybuffer',
+            headers: {
+                'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
+            }
+        });
         return Buffer.from(response.data).toString('base64');
     } catch (e) {
         // console.error(`Failed to download image ${url}:`, e.message);
@@ -166,6 +218,14 @@ async function validateImageClarity(imageUrl, productDescription) {
         const text = response.candidates[0].content.parts[0].text.trim().toUpperCase();
         return text.includes('YES');
     } catch (e) {
+        if (e.message && (e.message.includes('supported') || e.message.includes('400'))) {
+            try {
+                const text = await callFalVision(prompt, b64);
+                return text.toUpperCase().includes('YES');
+            } catch (fallbackErr) {
+                console.error("Clarity validation fallback error:", fallbackErr);
+            }
+        }
         console.error("Validation error:", e);
         return false;
     }
@@ -253,6 +313,15 @@ async function selectBestImage(imageUrls, productDescription) {
             return await generateCleanProductImage(genPrompt);
         }
     } catch (error) {
+        if (error.message && (error.message.includes('supported') || error.message.includes('400'))) {
+            try {
+                // For selection fallback, we just take the first candidate to keep it simple
+                // or we could use the vision model to rank them, but let's stick to first for now
+                return validCandidateUrls[0];
+            } catch (fallbackErr) {
+                console.error("Selection fallback error:", fallbackErr);
+            }
+        }
         console.error("Error in selectBestImage:", error);
         return validCandidateUrls[0] || null;
     }

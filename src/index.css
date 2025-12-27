@@ -491,9 +491,15 @@ body {
 
 .result-grid-layout {
   display: grid;
-  grid-template-columns: 1fr 1.2fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 1.5rem;
-  align-items: start;
+  align-items: stretch; /* Ensure columns take full height */
+}
+
+.result-grid-layout .glass-card {
+  height: 750px; /* Fixed height for all cards in the grid */
+  display: flex;
+  flex-direction: column;
 }
 
 .tiktok-refs-card {
@@ -504,11 +510,8 @@ body {
 
 .tiktok-scroll-area {
   flex: 1;
-  overflow-y: scroll;
-  /* Force scrollbar */
-  padding-right: 1rem;
-  height: 700px;
-  /* Fixed height to ensure scrolling */
+  overflow-y: auto;
+  padding-right: 0.5rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -547,6 +550,12 @@ body {
 /* Intel Column */
 .intel-card {
   height: 100%;
+}
+
+.intel-details {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 0.5rem;
 }
 
 .product-image-container {
@@ -646,8 +655,7 @@ body {
 .script-scroll-area {
   flex: 1;
   overflow-y: auto;
-  padding-right: 1rem;
-  max-height: 600px;
+  padding-right: 0.5rem;
 }
 
 .script-section {

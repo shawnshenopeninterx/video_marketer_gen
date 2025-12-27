@@ -1,0 +1,214 @@
+[dotenv@17.2.3] injecting env (3) from .env -- tip: ⚙️  override existing env vars with { override: true }
+Server running on http://localhost:3000
+[2025-12-27T04:04:25.967Z] GET /api/campaign?url=https://memories.ai/luci/
+Starting campaign for: https://memories.ai/luci/
+[Campaign] [INTEL] Scraping URL: https://memories.ai/luci/  
+Launching Puppeteer for URL: https://memories.ai/luci/
+[Campaign] [INTEL] Distilling core product data from raw text... 
+[Campaign] [INTEL] Product identified: Luci Pin 
+[Campaign] [INTEL] Category refined to: Wearable Camera 
+[Campaign] [INTEL] Data extraction complete. 
+[Campaign] [Step 1.5: Saving all scraped images...] undefined 
+[Campaign] [Saved 0 images to local disk.] undefined 
+[Campaign] [TREND] Generating Research Prompt... 
+[Campaign] [TREND] Viral research prompt synthesized for Memories.ai. 
+[Campaign] [TREND] Fetching Marketing Insights from Memories.ai... 
+Calling Video Marketer API with prompt: "Find me the most viral or popular video in the product category Wearable Camera related to Automatic Photo Curation, and write a viral script for the product
+"
+[Campaign] [TREND] Marketing insights received from Memories.ai. 
+[Campaign] [SCRIPT] Writing Video Script... 
+[Campaign] [SCRIPT] Viral script finalized. 
+[Campaign] [RENDER] Selecting best product image... 
+Selecting best image from 0 candidates...
+No valid images found for selection. Generating new image...
+Generating image with prompt: A clean, professional product photo of The Luci Pin is an AI-powered lifelogging camera that automatically captures and curates your life's precious moments. This wearable device seamlessly integrates into your daily routine, creating a visual diary without manual intervention. Its AI algorithms intelligently select the most meaningful photos based on emotional significance, social context, and visual quality. on a studio-lit white background.
+Generated image saved to /Users/junxiaoshen/.gemini/antigravity/scratch/video_gen_marketing/server/public/generated_1766808323253.png
+[Campaign] [INTEL] Image validation complete. 
+[Campaign] [RENDER] Cinematic prompt generated for Sora 2. 
+[Campaign] [RENDER] Generating Video with Sora 2... 
+Starting Fal.ai Video Generation...
+Prompt: "Create a high-energy, viral 9:16 TikTok advertisement for this product: Wearable Camera. 
+        Product Description: The Luci Pin is an AI-powered lifelogging camera that automatically captures and curates your life's precious moments. This wearable device seamlessly integrates into your daily routine, creating a visual diary without manual intervention. Its AI algorithms intelligently select the most meaningful photos based on emotional significance, social context, and visual quality.. 
+        Follow this script flow: Okay, here's a 15-second TikTok script for the Luci Pin, leveraging the marketing AI insights and aiming for viral potential:
+
+**Format:**
+: Visual description (Audio: "Spoken text" + SFX if applicable)
+: ...
+
+**Script:**
+
+: Close-up of the Luci Pin pendant on a shirt, sunlight flares dramatically. (Audio: Upbeat, trendy music intro - think something poppy/electronic with a short build. Then a female voice says sharply: "Missed it?").
+: Quick montage of fast-paced, dynamic scenes: a child laughi. 
+        Visual Style: Cinematic, high-fidelity, vibrant lighting, professional product showcase."
+Aspect Ratio: 9:16
+Detected local image, uploading to fal.ai storage: http://localhost:3000/generated_1766808323253.png
+Image uploaded successfully to fal.ai storage: https://v3b.fal.media/files/b/0a87ef80/73iN-wUUVZ8l8p230wYLn_1766808323260.octet
+Using image input for Sora 2: https://v3b.fal.media/files/b/0a87ef80/73iN-wUUVZ8l8p230wYLn_1766808323260.octet
+Calling Fal.ai API with model: fal-ai/sora-2/image-to-video
+Generation complete!
+Result: {
+  "data": {
+    "video": {
+      "url": "https://v3b.fal.media/files/b/0a87ef80/9SvAmK5gRzuYFAstiAoNO_OSvwwjX6.mp4",
+      "content_type": "video/mp4",
+      "file_name": "9SvAmK5gRzuYFAstiAoNO_OSvwwjX6.mp4",
+      "file_size": null,
+      "width": 720,
+      "height": 1280,
+      "fps": 30,
+      "duration": 4.1,
+      "num_frames": 122
+    },
+    "video_id": "video_694f5b08999c81918f68f1a648217f1b03f8533a3fb3a8f5",
+    "thumbnail": {
+      "url": "https://v3b.fal.media/files/b/0a87ef88/UWQYNm2oCHiKvDyIKXH5C.webp",
+      "content_type": "image/jpeg",
+      "file_name": "UWQYNm2oCHiKvDyIKXH5C.webp",
+      "file_size": null,
+      "width": null,
+      "height": null
+    },
+    "spritesheet": {
+      "url": "https://v3b.fal.media/files/b/0a87ef88/D1m5j8ac92VqXjd1nwsvs.bin",
+      "content_type": "image/jpeg",
+      "file_name": "D1m5j8ac92VqXjd1nwsvs.bin",
+      "file_size": null,
+      "width": null,
+      "height": null
+    }
+  },
+  "requestId": "a8820b11-d3ab-4935-976f-277066dc3f4b"
+}
+Downloading video from: https://v3b.fal.media/files/b/0a87ef80/9SvAmK5gRzuYFAstiAoNO_OSvwwjX6.mp4
+Generated video saved to: /Users/junxiaoshen/.gemini/antigravity/scratch/video_gen_marketing/server/public/videos/fal_1766808407883.mp4
+[Campaign] [RENDER] Video Generated successfully. 
+[2025-12-27T04:08:37.222Z] GET /api/campaign?url=https%3A%2F%2Fouraring.com%2F%3Fg_acctid%3D404-975-2641%26g_adgroupid%3D165661507839%26g_adid%3D772344593951%26g_adtype%3Dsearch%26g_campaign%3Dgoogle_sem_brand_alwayson_br_usa_en_exactbroad_oura_mh%26g_campaignid%3D21633291994%26g_keyword%3Doura%2520ring%26g_keywordid%3Dkwd-305035554360%26g_network%3Dg%26utm_campaign%3DOUR_SEM_OREO_Q4FY24_US_GoogleAds_Brand_Various_XDV_Digital_CPC_Various_1x1_10-03-2024_11-10-2024_Placement%26utm_content%3DOREO_Q4FY24%26utm_id%3D165661507839%26utm_medium%3Dcpc%26utm_source%3Dgoogle%26utm_term%3Doura%2520ring%26gclsrc%3Daw.ds%26gad_source%3D1%26gad_campaignid%3D21633291994%26gbraid%3D0AAAAAqpUsImgWQK_2nMgxoRsVn_wUsYhk%26gclid%3DCj0KCQiAgbnKBhDgARIsAGCDdld-0urQN_hz3x8xIJaSI1HtyalAG3T4M8w0tibYPkAax6ofBjOgEEMaAlvtEALw_wcB
+Starting campaign for: https://ouraring.com/?g_acctid=404-975-2641&g_adgroupid=165661507839&g_adid=772344593951&g_adtype=search&g_campaign=google_sem_brand_alwayson_br_usa_en_exactbroad_oura_mh&g_campaignid=21633291994&g_keyword=oura%20ring&g_keywordid=kwd-305035554360&g_network=g&utm_campaign=OUR_SEM_OREO_Q4FY24_US_GoogleAds_Brand_Various_XDV_Digital_CPC_Various_1x1_10-03-2024_11-10-2024_Placement&utm_content=OREO_Q4FY24&utm_id=165661507839&utm_medium=cpc&utm_source=google&utm_term=oura%20ring&gclsrc=aw.ds&gad_source=1&gad_campaignid=21633291994&gbraid=0AAAAAqpUsImgWQK_2nMgxoRsVn_wUsYhk&gclid=Cj0KCQiAgbnKBhDgARIsAGCDdld-0urQN_hz3x8xIJaSI1HtyalAG3T4M8w0tibYPkAax6ofBjOgEEMaAlvtEALw_wcB
+[Campaign] [INTEL] Scraping URL: https://ouraring.com/?g_acctid=404-975-2641&g_adgroupid=165661507839&g_adid=772344593951&g_adtype=search&g_campaign=google_sem_brand_alwayson_br_usa_en_exactbroad_oura_mh&g_campaignid=21633291994&g_keyword=oura%20ring&g_keywordid=kwd-305035554360&g_network=g&utm_campaign=OUR_SEM_OREO_Q4FY24_US_GoogleAds_Brand_Various_XDV_Digital_CPC_Various_1x1_10-03-2024_11-10-2024_Placement&utm_content=OREO_Q4FY24&utm_id=165661507839&utm_medium=cpc&utm_source=google&utm_term=oura%20ring&gclsrc=aw.ds&gad_source=1&gad_campaignid=21633291994&gbraid=0AAAAAqpUsImgWQK_2nMgxoRsVn_wUsYhk&gclid=Cj0KCQiAgbnKBhDgARIsAGCDdld-0urQN_hz3x8xIJaSI1HtyalAG3T4M8w0tibYPkAax6ofBjOgEEMaAlvtEALw_wcB  
+Launching Puppeteer for URL: https://ouraring.com/?g_acctid=404-975-2641&g_adgroupid=165661507839&g_adid=772344593951&g_adtype=search&g_campaign=google_sem_brand_alwayson_br_usa_en_exactbroad_oura_mh&g_campaignid=21633291994&g_keyword=oura%20ring&g_keywordid=kwd-305035554360&g_network=g&utm_campaign=OUR_SEM_OREO_Q4FY24_US_GoogleAds_Brand_Various_XDV_Digital_CPC_Various_1x1_10-03-2024_11-10-2024_Placement&utm_content=OREO_Q4FY24&utm_id=165661507839&utm_medium=cpc&utm_source=google&utm_term=oura%20ring&gclsrc=aw.ds&gad_source=1&gad_campaignid=21633291994&gbraid=0AAAAAqpUsImgWQK_2nMgxoRsVn_wUsYhk&gclid=Cj0KCQiAgbnKBhDgARIsAGCDdld-0urQN_hz3x8xIJaSI1HtyalAG3T4M8w0tibYPkAax6ofBjOgEEMaAlvtEALw_wcB
+[Campaign] [INTEL] Distilling core product data from raw text... 
+[Campaign] [INTEL] Product identified: Oura Ring 
+[Campaign] [INTEL] Category refined to: Wearable Health Technology 
+[Campaign] [INTEL] Data extraction complete. 
+[Campaign] [Step 1.5: Saving all scraped images...] undefined 
+[Campaign] [Saved 18 images to local disk.] undefined 
+[Campaign] [TREND] Generating Research Prompt... 
+[Campaign] [TREND] Viral research prompt synthesized for Memories.ai. 
+[Campaign] [TREND] Fetching Marketing Insights from Memories.ai... 
+Calling Video Marketer API with prompt: "Find me the most viral or popular video in the product category Wearable Health Technology related to Sleep Tracking, and write a viral script for the product
+"
+[Campaign] [TREND] Marketing insights received from Memories.ai. 
+[Campaign] [SCRIPT] Writing Video Script... 
+[Campaign] [SCRIPT] Viral script finalized. 
+[Campaign] [RENDER] Selecting best product image... 
+Selecting best image from 18 candidates...
+Error in selectBestImage: Error: exception TypeError: fetch failed sending request
+    at /Users/junxiaoshen/.gemini/antigravity/scratch/video_gen_marketing/server/node_modules/@google/genai/dist/node/index.cjs:11881:19
+    at async Models.generateContent (/Users/junxiaoshen/.gemini/antigravity/scratch/video_gen_marketing/server/node_modules/@google/genai/dist/node/index.cjs:13094:24)
+    at async selectBestImage (/Users/junxiaoshen/.gemini/antigravity/scratch/video_gen_marketing/server/gemini.js:289:26)
+    at async runCampaign (/Users/junxiaoshen/.gemini/antigravity/scratch/video_gen_marketing/server/workflow.js:128:27)
+    at async /Users/junxiaoshen/.gemini/antigravity/scratch/video_gen_marketing/server/index.js:117:24
+[Campaign] [INTEL] Image validation complete. 
+[Campaign] [RENDER] Cinematic prompt generated for Sora 2. 
+[Campaign] [RENDER] Generating Video with Sora 2... 
+Starting Fal.ai Video Generation...
+Prompt: "Create a high-energy, viral 9:16 TikTok advertisement for this product: Wearable Health Technology. 
+        Product Description: Oura Ring is a smart ring designed for fitness, stress management, sleep tracking, and overall health monitoring. It comfortably collects deeply personal health metrics and insights, providing accurate readings of over 20 biometrics to help you understand your body.. 
+        Follow this script flow: Okay, here's a 15-second TikTok video script for the Oura Ring, leveraging the AI insights provided. I've prioritized a fast pace, clear visuals, and a focus on tangible benefits.
+
+**Video Script: Oura Ring (15 Seconds)**
+
+**Music:** Upbeat, trending TikTok sound for the first 5 seconds, then transitions to a calmer, more credible sound.
+
+: Extreme close-up of Oura Ring sliding onto finger. (Audio: "Tired of *guessing* your sleep?") (On-screen text: "STOP GUESSING") (0-2 seconds)
+
+: Quick montag. 
+        Visual Style: Cinematic, high-fidelity, vibrant lighting, professional product showcase."
+Aspect Ratio: 9:16
+Using image input for Sora 2: https://ouraring.com/assets/icons/opengraph-400x400.png
+Calling Fal.ai API with model: fal-ai/sora-2/image-to-video
+Generation complete!
+Result: {
+  "data": {
+    "video": {
+      "url": "https://v3b.fal.media/files/b/0a87ef9b/fjQZTJ9Bl8KcMsshyYxr7_KRILGZx8.mp4",
+      "content_type": "video/mp4",
+      "file_name": "fjQZTJ9Bl8KcMsshyYxr7_KRILGZx8.mp4",
+      "file_size": null,
+      "width": 720,
+      "height": 1280,
+      "fps": 30,
+      "duration": 4.1,
+      "num_frames": 122
+    },
+    "video_id": "video_694f5c159b6c8190b5d24856b7d0b768095a208bf6c7529f",
+    "thumbnail": {
+      "url": "https://v3b.fal.media/files/b/0a87efa4/ud7lnhotaj1Zh-C3x_1OQ.webp",
+      "content_type": "image/jpeg",
+      "file_name": "ud7lnhotaj1Zh-C3x_1OQ.webp",
+      "file_size": null,
+      "width": null,
+      "height": null
+    },
+    "spritesheet": {
+      "url": "https://v3b.fal.media/files/b/0a87efa4/RI3geGh4Hut4W3mFQ-McZ.bin",
+      "content_type": "image/jpeg",
+      "file_name": "RI3geGh4Hut4W3mFQ-McZ.bin",
+      "file_size": null,
+      "width": null,
+      "height": null
+    }
+  },
+  "requestId": "6a11c8ca-0f15-4c32-b9ec-2e36c4108bb6"
+}
+Downloading video from: https://v3b.fal.media/files/b/0a87ef9b/fjQZTJ9Bl8KcMsshyYxr7_KRILGZx8.mp4
+Generated video saved to: /Users/junxiaoshen/.gemini/antigravity/scratch/video_gen_marketing/server/public/videos/fal_1766808683923.mp4
+[Campaign] [RENDER] Video Generated successfully. 
+[2025-12-27T04:15:44.596Z] GET /api/campaign?url=https%3A%2F%2Fwww.amazon.com%2FOura-Ring-Tracking-Wearable-Fitness%2Fdp%2FB0D9WVKXLK%2Fref%3Dsr_1_1%3Fcrid%3D1DYP3RWNM2866%26dib%3DeyJ2IjoiMSJ9.zmNMscFvH9L6pyMPo2wGtd0VLT0a4CTgYg67RYlxd3Bvh5L4VaBfJOoq6vogJngD3R6KlDl06LvSelN5zn8vlyTTcgB1wfQbh90YaJ3qlgge3LDdtsuXG3tyq9HPywROmlfzdfEsHsMZZLb7Z_h6qp0wRyeCdmEH7IDMWPlijq1STFi1OCCH6YSFIIiIX8V0rgFxCuSuNqR_4z0Xzz0yA8kRwaPzW5LvhcU3mayuFVE.k9AFxg7R1BDdsaksRqYIA9urJpTJ3FANrAoMHQraPOk%26dib_tag%3Dse%26keywords%3Doura%2Bring%26qid%3D1766808935%26sprefix%3Doura%2B%252Caps%252C397%26sr%3D8-1
+Starting campaign for: https://www.amazon.com/Oura-Ring-Tracking-Wearable-Fitness/dp/B0D9WVKXLK/ref=sr_1_1?crid=1DYP3RWNM2866&dib=eyJ2IjoiMSJ9.zmNMscFvH9L6pyMPo2wGtd0VLT0a4CTgYg67RYlxd3Bvh5L4VaBfJOoq6vogJngD3R6KlDl06LvSelN5zn8vlyTTcgB1wfQbh90YaJ3qlgge3LDdtsuXG3tyq9HPywROmlfzdfEsHsMZZLb7Z_h6qp0wRyeCdmEH7IDMWPlijq1STFi1OCCH6YSFIIiIX8V0rgFxCuSuNqR_4z0Xzz0yA8kRwaPzW5LvhcU3mayuFVE.k9AFxg7R1BDdsaksRqYIA9urJpTJ3FANrAoMHQraPOk&dib_tag=se&keywords=oura+ring&qid=1766808935&sprefix=oura+%2Caps%2C397&sr=8-1
+[Campaign] [INTEL] Scraping URL: https://www.amazon.com/Oura-Ring-Tracking-Wearable-Fitness/dp/B0D9WVKXLK/ref=sr_1_1?crid=1DYP3RWNM2866&dib=eyJ2IjoiMSJ9.zmNMscFvH9L6pyMPo2wGtd0VLT0a4CTgYg67RYlxd3Bvh5L4VaBfJOoq6vogJngD3R6KlDl06LvSelN5zn8vlyTTcgB1wfQbh90YaJ3qlgge3LDdtsuXG3tyq9HPywROmlfzdfEsHsMZZLb7Z_h6qp0wRyeCdmEH7IDMWPlijq1STFi1OCCH6YSFIIiIX8V0rgFxCuSuNqR_4z0Xzz0yA8kRwaPzW5LvhcU3mayuFVE.k9AFxg7R1BDdsaksRqYIA9urJpTJ3FANrAoMHQraPOk&dib_tag=se&keywords=oura+ring&qid=1766808935&sprefix=oura+%2Caps%2C397&sr=8-1  
+Launching Puppeteer for URL: https://www.amazon.com/Oura-Ring-Tracking-Wearable-Fitness/dp/B0D9WVKXLK/ref=sr_1_1?crid=1DYP3RWNM2866&dib=eyJ2IjoiMSJ9.zmNMscFvH9L6pyMPo2wGtd0VLT0a4CTgYg67RYlxd3Bvh5L4VaBfJOoq6vogJngD3R6KlDl06LvSelN5zn8vlyTTcgB1wfQbh90YaJ3qlgge3LDdtsuXG3tyq9HPywROmlfzdfEsHsMZZLb7Z_h6qp0wRyeCdmEH7IDMWPlijq1STFi1OCCH6YSFIIiIX8V0rgFxCuSuNqR_4z0Xzz0yA8kRwaPzW5LvhcU3mayuFVE.k9AFxg7R1BDdsaksRqYIA9urJpTJ3FANrAoMHQraPOk&dib_tag=se&keywords=oura+ring&qid=1766808935&sprefix=oura+%2Caps%2C397&sr=8-1
+[Campaign] [INTEL] Distilling core product data from raw text... 
+[Campaign] [INTEL] Product identified: Oura Ring 4 - Gold - Size 8 
+[Campaign] [INTEL] Category refined to: Wearable Health Tracker 
+[Campaign] [INTEL] Data extraction complete. 
+[Campaign] [Step 1.5: Saving all scraped images...] undefined 
+[Campaign] [Saved 18 images to local disk.] undefined 
+[Campaign] [TREND] Generating Research Prompt... 
+[Campaign] [TREND] Viral research prompt synthesized for Memories.ai. 
+[Campaign] [TREND] Fetching Marketing Insights from Memories.ai... 
+Calling Video Marketer API with prompt: ""Find me the most viral or popular video in the product category Wearable Health Tracker related to Sleep Tracking, and write a viral script for the product"
+"
+[Campaign] [TREND] Marketing insights received from Memories.ai. 
+[Campaign] [SCRIPT] Writing Video Script... 
+[Campaign] [SCRIPT] Viral script finalized. 
+[Campaign] [RENDER] Selecting best product image... 
+Selecting best image from 18 candidates...
+Image selection result: {
+  bestImageIndex: 6,
+  reason: 'Image 6 shows the ring sizing kit in a professional, clean setup. The rings are the focal point, the background is neutral, and the lighting is suitable. It avoids all disqualification criteria.',
+  generationPrompt: 'Create a photorealistic, studio-lit product shot of the Oura Ring sizing kit. The kit consists of a blister pack containing multiple white plastic rings of varying sizes. Position two actual Oura rings (one black, one silver) beside the kit on a soft beige surface. The background should be a seamless white studio backdrop, providing ample negative space. Lighting should be soft and even, highlighting the subtle details of the rings and the blister pack. The camera angle should be slightly elevated to showcase the arrangement, emphasizing the 3D form of the rings. Capture a high-resolution, professional product image with a focus on clarity, precision, and a clean aesthetic.'
+}
+Validating image clarity for: https://m.media-amazon.com/images/S/aplus-media-library-service-media/d2c25d2d-5317-4bda-ac8a-6e0987397e88.__CR0,0,2928,1200_PT0_SX1464_V1___.png
+Selected image failed final clarity validation. Generating...
+Generating image with prompt: Create a photorealistic, studio-lit product shot of the Oura Ring sizing kit. The kit consists of a blister pack containing multiple white plastic rings of varying sizes. Position two actual Oura rings (one black, one silver) beside the kit on a soft beige surface. The background should be a seamless white studio backdrop, providing ample negative space. Lighting should be soft and even, highlighting the subtle details of the rings and the blister pack. The camera angle should be slightly elevated to showcase the arrangement, emphasizing the 3D form of the rings. Capture a high-resolution, professional product image with a focus on clarity, precision, and a clean aesthetic.
+Generated image saved to /Users/junxiaoshen/.gemini/antigravity/scratch/video_gen_marketing/server/public/generated_1766809026689.png
+[Campaign] [INTEL] Image validation complete. 
+[Campaign] [RENDER] Cinematic prompt generated for Sora 2. 
+[Campaign] [RENDER] Generating Video with Sora 2... 
+Starting Fal.ai Video Generation...
+Prompt: "Create a high-energy, viral 9:16 TikTok advertisement for this product: Wearable Health Tracker. 
+        Product Description: The Oura Ring 4 is a smart ring designed to track your sleep, activity, stress, and overall health. It provides personalized insights into your sleep patterns, daily activity levels, and heart health. The ring is built to be worn comfortably all day and night, offering continuous monitoring without interruptions.. 
+        Follow this script flow: Okay, here's a 15-second TikTok script for the Oura Ring 4, leveraging the provided insights.
+
+**:** Close-up of the Oura Ring 4 being slid onto a finger. (Audio: "Three nights. One metric that changed everything.")
+
+**:** Fast cuts: Groggy person at desk, yawning; then a close-up of a messy phone calendar. (Audio: "Tired all day? Your tracker might be lying.")
+
+**:** Screen capture of the Oura app sleep summary: Total sleep time, REM, Deep Sleep, and Sleep Score popping in with animated numbers. 
+        Visual Style: Cinematic, high-fidelity, vibrant lighting, professional product showcase."
+Aspect Ratio: 9:16
+Detected local image, uploading to fal.ai storage: http://localhost:3000/generated_1766809026689.png
+Image uploaded successfully to fal.ai storage: https://v3b.fal.media/files/b/0a87efc6/9pDdfzdDqHww4bslEgA17_1766809026703.octet
+Using image input for Sora 2: https://v3b.fal.media/files/b/0a87efc6/9pDdfzdDqHww4bslEgA17_1766809026703.octet
+Calling Fal.ai API with model: fal-ai/sora-2/image-to-video

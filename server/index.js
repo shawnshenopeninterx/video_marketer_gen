@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const { scrapeProductData } = require('./scraper');
@@ -11,6 +12,12 @@ const path = require('path');
 app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public'))); // Serve static files from public directory
+
+// Logging middleware
+app.use((req, res, next) => {
+    console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
+    next();
+});
 
 // Helper to validate URL
 const isValidUrl = (string) => {
@@ -114,10 +121,11 @@ app.get('/api/campaign', async (req, res) => {
         if (result.status === 'success') {
             sendSSE('result', result);
         } else {
+            console.error(`Campaign process-level failure: ${result.error}`);
             sendSSE('error', { message: result.error });
         }
     } catch (error) {
-        console.error('Campaign Error:', error);
+        console.error('Campaign SSE Route Error:', error);
         sendSSE('error', { message: 'Campaign failed', details: error.message });
     } finally {
         res.end();

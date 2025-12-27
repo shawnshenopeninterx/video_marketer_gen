@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-const API_KEY = 'b06dbf96e4cb79735c18924c6afacb6d';
+const API_KEY = process.env.MEMORIES_API_KEY;
 const ENDPOINT = 'https://api.memories.ai/serve/api/v1/marketer_chat';
 
 async function generateMarketingInsights(prompt, sessionId = 'default-session', type = 'TIKTOK') {
