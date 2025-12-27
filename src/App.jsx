@@ -192,12 +192,12 @@ function App() {
         }
       },
       script: `**[Scene 1]:** Close-up of stressed face, tossing and turning in bed. (Audio: "Tired of waking up exhausted?")\n\n**[Scene 2]:** Hand putting on the Oura Ring. (Audio: "Oura Ring is here.")\n\n**[Scene 3]:** Oura Ring app showing personalized sleep data – REM, Deep Sleep, Sleep Score. (Audio: "Track sleep...")\n\n**[Scene 4]:** Fast montage: Person working out, feeling energized, smiling, then looking at heart rate data on the app. (Audio: "...Stress...Fitness...Heart health.")\n\n**[Scene 5]:** Person looking directly at the camera, confidently. Oura Ring visible. (Audio: "Level up your health. Oura Ring.")`,
-      video: { videoUrl: '/videos/fal_1766834085119.mp4' },
+      video: { videoUrl: 'https://v3b.fal.media/files/b/0a87f988/bLcefsLeeKv5PGyDWAbyU_7YUbIDbl.mp4' },
       selectedImage: 'https://ourahealth.imgix.net/singles_day_mobile.jpg?ixlib=js-3.8.0&auto=format&fit=crop&fm=png&ar=1%3A1&crop=focalpoint&fp-x=0.38&fp-y=0.52&fp-z=1.6&q=70&w=3840&s=2625eaa74513d7ed942f21009cc26f3b',
       videoPrompt: 'Create a high-energy, viral 9:16 TikTok advertisement for this product: Wearable Health Technology. Product Description: Oura Ring 4 is a smart ring designed for fitness, sleep, stress, and overall health monitoring.',
       tiktokUrls: [
-        'https://www.tiktok.com/@mkbhd/video/7421882194639457567',
-        'https://www.tiktok.com/@carterpcs/video/7331580138927033643'
+        'https://www.tiktok.com/@oura/video/7421882352841608490',
+        'https://www.tiktok.com/@mkbhd/video/7421882194639457567'
       ]
     }
 
