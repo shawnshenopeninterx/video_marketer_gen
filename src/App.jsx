@@ -477,7 +477,7 @@ function App() {
                   className="share-btn"
                   disabled={sharing}
                 >
-                  {sharing ? 'Generating...' : '🔗 Share Campaign'}
+                  {sharing ? 'Generating...' : 'Share Campaign'}
                 </button>
                 <button onClick={() => {
                   setResult(null);
