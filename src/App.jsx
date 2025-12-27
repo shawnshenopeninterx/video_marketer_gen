@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
+import { SpeedInsights } from '@vercel/speed-insights/react'
 import './index.css'
 
 const API_BASE_URL = window.location.hostname === 'localhost'
@@ -620,6 +621,7 @@ function App() {
           </div>
         )}
       </main>
+      <SpeedInsights />
     </div>
   )
 }
