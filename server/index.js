@@ -8,6 +8,13 @@ const app = express();
 const PORT = 3000;
 
 const path = require('path');
+const fs = require('fs');
+
+// Ensure campaigns directory exists
+const campaignsDir = path.join(__dirname, 'data');
+if (!fs.existsSync(campaignsDir)) {
+    fs.mkdirSync(campaignsDir);
+}
 
 app.use(cors());
 app.use(express.json());
@@ -129,6 +136,28 @@ app.get('/api/campaign', async (req, res) => {
         sendSSE('error', { message: 'Campaign failed', details: error.message });
     } finally {
         res.end();
+    }
+});
+
+// Endpoint: Save/Share a campaign
+app.post('/api/share', (req, res) => {
+    const { campaignData } = req.body;
+    if (!campaignData) return res.status(400).json({ error: 'Data missing' });
+
+    const id = Date.now().toString() + Math.floor(Math.random() * 1000).toString();
+    fs.writeFileSync(path.join(campaignsDir, `${id}.json`), JSON.stringify(campaignData));
+    res.json({ id });
+});
+
+// Endpoint: Get a shared campaign
+app.get('/api/share/:id', (req, res) => {
+    const { id } = req.params;
+    const filepath = path.join(campaignsDir, `${id}.json`);
+    if (fs.existsSync(filepath)) {
+        const data = fs.readFileSync(filepath, 'utf8');
+        res.json(JSON.parse(data));
+    } else {
+        res.status(404).json({ error: 'Campaign not found' });
     }
 });
 

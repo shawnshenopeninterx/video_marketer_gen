@@ -13,7 +13,62 @@ function App() {
   const [currentStage, setCurrentStage] = useState(0)
   const [result, setResult] = useState(null)
   const [error, setError] = useState(null)
+  const [sharing, setSharing] = useState(false)
+  const [shareUrl, setShareUrl] = useState('')
   const resultRef = useRef(null)
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    const shareId = params.get('share')
+    if (shareId) {
+      fetchSharedCampaign(shareId)
+    }
+  }, [])
+
+  const fetchSharedCampaign = async (id) => {
+    setLoading(true)
+    setProcessLogs([])
+    try {
+      const resp = await fetch(`${API_BASE_URL}/api/share/${id}`)
+      if (resp.ok) {
+        const data = await resp.json()
+        setResult(data)
+        // Add minimal logs for shared view
+        setProcessLogs([
+          { timestamp: new Date().toLocaleTimeString(), tag: 'SYSTEM', message: 'Campaign assets retrieved from secure cloud storage.' },
+          { timestamp: new Date().toLocaleTimeString(), tag: 'SYSTEM', message: 'Loading cinematic render and marketing insights...' }
+        ])
+      } else {
+        setError('Shared campaign not found or has expired.')
+      }
+    } catch (err) {
+      setError('Failed to connect to storage server.')
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  const handleShare = async () => {
+    if (!result) return
+    setSharing(true)
+    try {
+      const resp = await fetch(`${API_BASE_URL}/api/share`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ campaignData: result })
+      })
+      const { id } = await resp.json()
+      const url = `${window.location.origin}${window.location.pathname}?share=${id}`
+      setShareUrl(url)
+      await navigator.clipboard.writeText(url)
+      alert('Share link copied to clipboard! 🚀')
+    } catch (err) {
+      console.error('Share failed:', err)
+      alert('Generation of share link failed. Please try again.')
+    } finally {
+      setSharing(false)
+    }
+  }
 
   useEffect(() => {
     if (result && resultRef.current) {
@@ -416,7 +471,19 @@ function App() {
           >
             <div className="result-header">
               <h2 className="result-main-title">Campaign Assets Generated</h2>
-              <button onClick={() => setResult(null)} className="reset-btn">New Campaign</button>
+              <div className="result-header-actions">
+                <button
+                  onClick={handleShare}
+                  className="share-btn"
+                  disabled={sharing}
+                >
+                  {sharing ? 'Generating...' : '🔗 Share Campaign'}
+                </button>
+                <button onClick={() => {
+                  setResult(null);
+                  window.history.pushState({}, '', window.location.pathname);
+                }} className="reset-btn">New Campaign</button>
+              </div>
             </div>
 
             <div className="result-grid-layout">
