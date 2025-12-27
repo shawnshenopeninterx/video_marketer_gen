@@ -123,23 +123,23 @@ function App() {
       status: 'success',
       productData: {
         productName: 'Oura Ring 4',
-        category: 'Smart Health Wearable',
-        description: 'The Oura Ring 4 is a revolutionary smart ring designed to track your health with medical-grade accuracy. It monitors sleep, activity, stress, and heart rate 24/7, all within a sleek, lightweight titanium design that lasts up to 8 days on a single charge.',
-        images: ['/best_product.webp']
+        category: 'Wearable Health Technology',
+        description: 'Oura Ring 4 is a smart ring designed for fitness, sleep, stress, and overall health monitoring. It tracks over 20 biometrics through comfortable, all-day and night wear, providing personalized health insights to optimize your well-being. It helps users achieve better sleep, improve fitness, and understand their heart health.',
+        images: ['https://ourahealth.imgix.net/singles_day_mobile.jpg?ixlib=js-3.8.0&auto=format&fit=crop&fm=png&ar=1%3A1&crop=focalpoint&fp-x=0.38&fp-y=0.52&fp-z=1.6&q=70&w=3840&s=2625eaa74513d7ed942f21009cc26f3b']
       },
-      researchPrompt: 'Find me the most viral or popular video in the product category Smart Health Wearable related to Sleep Tracking, and write a viral script for the product',
+      researchPrompt: 'Find me the most viral or popular video in the product category Wearable Health Technology related to Sleep Tracking, and write a viral script for the product',
       insights: {
         data: {
-          content: "Based on current TikTok trends, the 'Biohacking' and 'Aesthetic Wellness' niches are seeing a 45% increase in engagement. Users are responding to high-contrast, minimalist visuals paired with 'POV' hooks that emphasize personal optimization and medical-grade data. The Oura Ring 4 fits perfectly into the 'Quiet Luxury' tech category. The most successful videos use a 'Lab-Test' style comparison, showing raw data overlays and satisfying side-by-side results.",
+          content: "Based on current TikTok trends, wellness technology that integrates seamlessly into daily life is seeing a massive surge. The 'Biohacking' community specifically values data-driven health optimization. Videos showing side-by-side comparisons of 'Before Oura' vs 'After Oura' sleep scores are highly effective. Minimalist, premium aesthetics paired with raw data overlays resonate best with the target audience.",
           thinkings: [
-            { refs: [{ video: { video_name: "POV: Your ring knows you better than you do - Biohacking Trend" } }] }
+            { refs: [{ video: { video_name: "POV: Your ring knows you better than you do - Sleep Optimization" } }] }
           ]
         }
       },
-      script: `[HOOK]\nPOV: You just found the only piece of tech you actually want to wear 24/7.\n\n[BODY]\nForget the bulky smartwatches. The Oura Ring 4 tracks everything—sleep, stress, heart rate—in a sleek titanium band.\nIt literally tells you when you're getting sick before you even feel it.\n8 days of battery life and it looks like high-end jewelry.\n\n[CTA]\nUpgrade your health game. Link in bio.`,
-      video: { videoUrl: '/videos/veo3_1766728395899.mp4' },
-      selectedImage: '/best_product.webp',
-      videoPrompt: 'Cinematic 9:16 video of a sleek silver Oura Ring 4 on a minimalist wooden surface, soft morning light, focus on the interior sensors, 4k high-fidelity.',
+      script: `**[Scene 1]:** Close-up of stressed face, tossing and turning in bed. (Audio: "Tired of waking up exhausted?")\n\n**[Scene 2]:** Hand putting on the Oura Ring. (Audio: "Oura Ring is here.")\n\n**[Scene 3]:** Oura Ring app showing personalized sleep data – REM, Deep Sleep, Sleep Score. (Audio: "Track sleep...")\n\n**[Scene 4]:** Fast montage: Person working out, feeling energized, smiling, then looking at heart rate data on the app. (Audio: "...Stress...Fitness...Heart health.")\n\n**[Scene 5]:** Person looking directly at the camera, confidently. Oura Ring visible. (Audio: "Level up your health. Oura Ring.")`,
+      video: { videoUrl: '/videos/fal_1766834085119.mp4' },
+      selectedImage: 'https://ourahealth.imgix.net/singles_day_mobile.jpg?ixlib=js-3.8.0&auto=format&fit=crop&fm=png&ar=1%3A1&crop=focalpoint&fp-x=0.38&fp-y=0.52&fp-z=1.6&q=70&w=3840&s=2625eaa74513d7ed942f21009cc26f3b',
+      videoPrompt: 'Create a high-energy, viral 9:16 TikTok advertisement for this product: Wearable Health Technology. Product Description: Oura Ring 4 is a smart ring designed for fitness, sleep, stress, and overall health monitoring.',
       tiktokUrls: [
         'https://www.tiktok.com/@mkbhd/video/7421882194639457567',
         'https://www.tiktok.com/@carterpcs/video/7331580138927033643'

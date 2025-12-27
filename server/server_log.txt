@@ -212,3 +212,122 @@ Detected local image, uploading to fal.ai storage: http://localhost:3000/generat
 Image uploaded successfully to fal.ai storage: https://v3b.fal.media/files/b/0a87efc6/9pDdfzdDqHww4bslEgA17_1766809026703.octet
 Using image input for Sora 2: https://v3b.fal.media/files/b/0a87efc6/9pDdfzdDqHww4bslEgA17_1766809026703.octet
 Calling Fal.ai API with model: fal-ai/sora-2/image-to-video
+Generation complete!
+Result: {
+  "data": {
+    "video": {
+      "url": "https://v3b.fal.media/files/b/0a87efc7/JLWYcE3duvg-buA9nbbM9_T62sspRC.mp4",
+      "content_type": "video/mp4",
+      "file_name": "JLWYcE3duvg-buA9nbbM9_T62sspRC.mp4",
+      "file_size": null,
+      "width": 720,
+      "height": 1280,
+      "fps": 30,
+      "duration": 4.1,
+      "num_frames": 122
+    },
+    "video_id": "video_694f5dc84f188190a29279bf0f6d571b0e56c05b2552cb0b",
+    "thumbnail": {
+      "url": "https://v3b.fal.media/files/b/0a87efcf/uVYCKsN5NJurHZ7M40bmE.webp",
+      "content_type": "image/jpeg",
+      "file_name": "uVYCKsN5NJurHZ7M40bmE.webp",
+      "file_size": null,
+      "width": null,
+      "height": null
+    },
+    "spritesheet": {
+      "url": "https://v3b.fal.media/files/b/0a87efcf/O7hHxoJe8rHBPA18prp48.bin",
+      "content_type": "image/jpeg",
+      "file_name": "O7hHxoJe8rHBPA18prp48.bin",
+      "file_size": null,
+      "width": null,
+      "height": null
+    }
+  },
+  "requestId": "f02ef191-b36e-43fc-9168-7a82f641828f"
+}
+Downloading video from: https://v3b.fal.media/files/b/0a87efc7/JLWYcE3duvg-buA9nbbM9_T62sspRC.mp4
+Generated video saved to: /Users/junxiaoshen/.gemini/antigravity/scratch/video_gen_marketing/server/public/videos/fal_1766809117813.mp4
+[Campaign] [RENDER] Video Generated successfully. 
+[2025-12-27T11:11:57.179Z] GET /api/campaign?url=https://ouraring.com/?srsltid=AfmBOorXZ6O7yiRj2yTQAKpDIzm9I5V69dsmPxjH2toMAd9bp2-Vv_6r
+Starting campaign for: https://ouraring.com/?srsltid=AfmBOorXZ6O7yiRj2yTQAKpDIzm9I5V69dsmPxjH2toMAd9bp2-Vv_6r
+[Campaign] [INTEL] Scraping URL: https://ouraring.com/?srsltid=AfmBOorXZ6O7yiRj2yTQAKpDIzm9I5V69dsmPxjH2toMAd9bp2-Vv_6r  
+Launching Puppeteer for URL: https://ouraring.com/?srsltid=AfmBOorXZ6O7yiRj2yTQAKpDIzm9I5V69dsmPxjH2toMAd9bp2-Vv_6r
+[Campaign] [INTEL] Distilling core product data from raw text... 
+[Campaign] [INTEL] Product identified: Oura Ring 4 
+[Campaign] [INTEL] Category refined to: Wearable Health Technology 
+[Campaign] [INTEL] Data extraction complete. 
+[Campaign] [Step 1.5: Saving all scraped images...] undefined 
+[Campaign] [Saved 18 images to local disk.] undefined 
+[Campaign] [TREND] Generating Research Prompt... 
+[Campaign] [TREND] Viral research prompt synthesized for Memories.ai. 
+[Campaign] [TREND] Fetching Marketing Insights from Memories.ai... 
+Calling Video Marketer API with prompt: "Find me the most viral or popular video in the product category Wearable Health Technology related to Sleep Tracking, and write a viral script for the product
+"
+[Campaign] [TREND] Marketing insights received from Memories.ai. 
+[Campaign] [SCRIPT] Writing Video Script... 
+[Campaign] [SCRIPT] Viral script finalized. 
+[Campaign] [RENDER] Selecting best product image... 
+Selecting best image from 18 candidates...
+Image selection result: {
+  bestImageIndex: 1,
+  reason: 'This image is a clear, professional product photo of the Oura Ring. It showcases the ring in two different color variations against a clean background, allowing the product to be the center of attention. There are no disqualifying elements such as people, lifestyle elements, logos, or exploded views.',
+  generationPrompt: 'Generate a highly detailed, studio-lit, 3D rendering of two Oura Ring 4s (one silver, one gold) floating slightly above a pure white background. The lighting should be soft and diffused, highlighting the metallic finish and contours of the rings. The rings should be positioned at slight angles to reveal the sensors on the inside. Ensure the rings are in perfect focus and the image has a professional, high-resolution quality.'
+}
+Validating image clarity for: https://ourahealth.imgix.net/singles_day_mobile.jpg?ixlib=js-3.8.0&auto=format&fit=crop&fm=png&ar=1%3A1&crop=focalpoint&fp-x=0.38&fp-y=0.52&fp-z=1.6&q=70&w=3840&s=2625eaa74513d7ed942f21009cc26f3b
+[Campaign] [INTEL] Image validation complete. 
+[Campaign] [RENDER] Cinematic prompt generated for Sora 2. 
+[Campaign] [RENDER] Generating Video with Sora 2... 
+Starting Fal.ai Video Generation...
+Prompt: "Create a high-energy, viral 9:16 TikTok advertisement for this product: Wearable Health Technology. 
+        Product Description: Oura Ring 4 is a smart ring designed for fitness, sleep, stress, and overall health monitoring. It tracks over 20 biometrics through comfortable, all-day and night wear, providing personalized health insights to optimize your well-being. It helps users achieve better sleep, improve fitness, and understand their heart health.. 
+        Follow this script flow: Okay, here's a 15-second TikTok script for the Oura Ring 4, based on the provided insights and optimized for a quick, engaging format:
+
+**:** Close-up of stressed face, tossing and turning in bed. (Audio: "Tired of waking up exhausted?")
+
+**:** Hand putting on the Oura Ring. (Audio: "Oura Ring is here.")
+
+**:** Oura Ring app showing personalized sleep data – REM, Deep Sleep, Sleep Score. (Audio: "Track sleep...")
+
+**:** Fast montage: Person working out, feeling energized, smiling, then looking a. 
+        Visual Style: Cinematic, high-fidelity, vibrant lighting, professional product showcase."
+Aspect Ratio: 9:16
+Using image input for Sora 2: https://ourahealth.imgix.net/singles_day_mobile.jpg?ixlib=js-3.8.0&auto=format&fit=crop&fm=png&ar=1%3A1&crop=focalpoint&fp-x=0.38&fp-y=0.52&fp-z=1.6&q=70&w=3840&s=2625eaa74513d7ed942f21009cc26f3b
+Calling Fal.ai API with model: fal-ai/sora-2/image-to-video
+Generation complete!
+Result: {
+  "data": {
+    "video": {
+      "url": "https://v3b.fal.media/files/b/0a87f988/bLcefsLeeKv5PGyDWAbyU_7YUbIDbl.mp4",
+      "content_type": "video/mp4",
+      "file_name": "bLcefsLeeKv5PGyDWAbyU_7YUbIDbl.mp4",
+      "file_size": null,
+      "width": 720,
+      "height": 1280,
+      "fps": 30,
+      "duration": 4.1,
+      "num_frames": 122
+    },
+    "video_id": "video_694fbf56d9c88198ab4d7974b066fcf10fa4861277abce9a",
+    "thumbnail": {
+      "url": "https://v3b.fal.media/files/b/0a87f990/syH6rgN0p9MFS2qhOnmlB.webp",
+      "content_type": "image/jpeg",
+      "file_name": "syH6rgN0p9MFS2qhOnmlB.webp",
+      "file_size": null,
+      "width": null,
+      "height": null
+    },
+    "spritesheet": {
+      "url": "https://v3b.fal.media/files/b/0a87f990/2x2xv8C8y_j04_rxekxNp.bin",
+      "content_type": "image/jpeg",
+      "file_name": "2x2xv8C8y_j04_rxekxNp.bin",
+      "file_size": null,
+      "width": null,
+      "height": null
+    }
+  },
+  "requestId": "37c43b58-7a65-46b1-89d4-67eabef7aaae"
+}
+Downloading video from: https://v3b.fal.media/files/b/0a87f988/bLcefsLeeKv5PGyDWAbyU_7YUbIDbl.mp4
+Generated video saved to: /Users/junxiaoshen/.gemini/antigravity/scratch/video_gen_marketing/server/public/videos/fal_1766834085119.mp4
+[Campaign] [RENDER] Video Generated successfully. 
