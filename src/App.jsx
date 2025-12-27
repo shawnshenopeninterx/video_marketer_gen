@@ -196,8 +196,8 @@ function App() {
       selectedImage: 'https://ourahealth.imgix.net/singles_day_mobile.jpg?ixlib=js-3.8.0&auto=format&fit=crop&fm=png&ar=1%3A1&crop=focalpoint&fp-x=0.38&fp-y=0.52&fp-z=1.6&q=70&w=3840&s=2625eaa74513d7ed942f21009cc26f3b',
       videoPrompt: 'Create a high-energy, viral 9:16 TikTok advertisement for this product: Wearable Health Technology. Product Description: Oura Ring 4 is a smart ring designed for fitness, sleep, stress, and overall health monitoring.',
       tiktokUrls: [
-        'https://www.tiktok.com/@zachking/video/6718335390845095173',
-        'https://www.tiktok.com/@tiktok/video/7106363060851117358'
+        'https://www.tiktok.com/@ouraring/video/7535557850140134687',
+        'https://www.tiktok.com/@nataliezacek/video/7504438827260349742'
       ]
     }
 
